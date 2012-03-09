@@ -1,0 +1,98 @@
+<?xml version="1.0"?> 
+<config>
+  <modules>
+      <Arush_Olark> 
+          <version>0.1.0</version>
+          <depends>
+              <!-- no dependencies --> 
+          </depends>
+      </Arush_Olark> 
+  </modules>
+  <global> 
+   
+    <blocks>
+        <adminhtml>
+            <rewrite>
+            </rewrite>
+        </adminhtml>
+    </blocks>
+    
+    <blocks>
+        <olark> 
+            <class>Arush_Olark_Block</class>
+        </olark> 
+    </blocks>
+    <helpers>
+        <olark>
+          <class>Arush_Olark_Helper</class>
+        </olark>
+    </helpers>
+  </global>
+  <adminhtml>
+      <acl>
+          <resources>
+              <admin>
+                  <children>
+                      <system>
+                          <children>
+                              <config>
+                                  <children>
+                                      <olark>
+                                          <title>Olark Chat Settings</title>
+                                      </olark>
+                                  </children>
+                              </config>
+                          </children>
+                      </system>
+                  </children>
+              </admin>
+          </resources>
+      </acl>
+      <events></events> 
+      <translate></translate>
+  </adminhtml> 
+  <frontend>
+      <routers></routers> 
+      <events></events> 
+      <translate></translate> 
+      <layout>
+      	<updates>
+                <olark>
+                    <file>arush/olark.xml</file>
+                </olark>
+        </updates>
+      </layout>
+  </frontend>
+  <admin>
+       <routers>
+          <olark>
+              <use>admin</use>
+              <args>
+                  <module>Arush_Olark</module>
+                  <frontName>olark</frontName>
+              </args>
+          </olark>
+      </routers>
+  </admin>
+  <!-- module defaults --> 
+  <default>
+      <!-- config values -->
+      <olark>
+          <chat>
+            <olark_on><![CDATA[]]></olark_on>
+            <olark_code><![CDATA[]]></olark_code>
+            <olark_name><![CDATA[]]></olark_name>
+            <olark_hesitation><![CDATA[]]></olark_hesitation>
+            <olark_millisecs><![CDATA[30000]]></olark_millisecs>
+          </chat>
+      </olark>
+  </default>
+  <!--<crontab>
+      <jobs>
+          <get_olark_view>
+              <schedule><cron_expr>*/2 * * * *</cron_expr></schedule>
+              <run><model>olark/observer::cacheFeeds</model></run>
+          </get_olark_view>
+      </jobs>
+  </crontab>-->
+</config>
