@@ -1,6 +1,8 @@
 Olark Live Chat for Magento
 ====================
 by @ldn_tech_exec
+
+
 If you work with Magento, follow me on twitter, check my favourites, I generally have some cool stuff to say.
 
 What it does
